@@ -238,7 +238,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .btn-sm { min-height: 40px; padding: 0.45rem 1rem; font-size: 0.9rem; }
-.btn-wide { justify-content: center; width: 100%; }
 
 .icon { width: 1.1em; height: 1.1em; flex-shrink: 0; }
 .icon-lg { width: 1.6em; height: 1.6em; color: var(--accent); }
@@ -471,42 +470,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-weight: 500;
 }
 
-.contact-lead { max-width: 36rem; margin-bottom: 2rem; }
-
-.contact-form {
-  max-width: 36rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  margin-bottom: 2.5rem;
-}
-.form-row { display: flex; flex-direction: column; gap: 0.35rem; }
-.form-row label {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--accent-strong);
-}
-.form-row input,
-.form-row textarea {
-  font: inherit;
-  color: var(--text);
-  background: var(--surface-brown);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 0.9rem;
-  min-height: 44px;
-  transition: border-color 0.2s ease;
-  width: 100%;
-}
-.form-row input::placeholder,
-.form-row textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
-.form-row input:focus,
-.form-row textarea:focus { border-color: var(--accent); outline: none; }
-.form-row textarea { resize: vertical; }
-
-.contact-form .btn-wide { max-width: 36rem; border-radius: var(--radius-sm); }
-
-.contact-alt p { color: var(--text-muted); margin-bottom: 0.75rem; }
 
 .footer {
   border-top: 1px solid var(--border-soft);
@@ -520,7 +483,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   text-align: center;
 }
 .footer-inner p { margin: 0; font-size: 0.9rem; }
-.footer-note { color: var(--text-muted); font-size: 0.85rem !important; }
 
 @media (min-width: 40em) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231c1712'/><text x='50' y='68' font-family='monospace' font-size='52' font-weight='bold' fill='%237faa76' text-anchor='middle'>jc</text></svg>">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 
 <header class="nav" id="top">
   <nav class="nav-inner" aria-label="Main navigation">
-    <a href="#top" class="nav-logo" aria-label="Back to top">jc<span class="accent">.</span></a>
+    <a href="#top" class="nav-logo" aria-label="Back to top"><span class="accent">//</span> jordan</a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
       <span class="nav-toggle-bar"></span>
@@ -33,7 +33,6 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -59,7 +58,7 @@
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
         LinkedIn
       </a>
-      <a class="btn" href="mailto:jcpcabanada@gmail.com">
+      <a class="btn" href="mailto:jordanchazc@gmail.com">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.24.5L12 12.25 19.76 6H4.24ZM20 7.8l-7.4 5.93a1 1 0 0 1-1.2 0L4 7.8V18h16V7.8Z"/></svg>
         Email
       </a>
@@ -263,11 +262,18 @@
     </article>
 
     <div class="project-grid">
-      <article class="project card project-soon">
-        <div class="project-thumb thumb-b" aria-hidden="true"><span>🌱</span></div>
+      <article class="project card">
+        <div class="project-thumb thumb-b" aria-hidden="true"><span>🍰</span></div>
         <div class="project-body">
-          <h3>Coming Soon</h3>
-          <p>A new project is growing here. Check back shortly.</p>
+          <h3>Pass The Cake Shop</h3>
+          <p>Website for my small-batch cheesecake business — home of the signature Ube Cheesecake. Hand-written CSS Modules, auto-deployed to GitHub Pages on every push.</p>
+          <ul class="chips chips-sm">
+            <li>React</li><li>Vite</li><li>CSS Modules</li><li>GitHub Actions</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-sm" href="https://jcpcab.github.io/PTC_Shop/" target="_blank" rel="noopener">Live</a>
+            <a class="btn btn-sm" href="https://github.com/jcpcab/PTC_Shop" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
       <article class="project card project-soon">
@@ -357,48 +363,11 @@
   </div>
 </section>
 
-<section class="section" id="contact">
-  <div class="container contact-container">
-    <p class="code-comment">// get in touch</p>
-    <h2>Contact</h2>
-    <p class="contact-lead">
-      Open to collaborations, opportunities, and good conversations — especially in
-      clean-energy, health, and social-impact spaces. My inbox is always open.
-    </p>
-
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="form-row">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
-      </div>
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
-      </div>
-      <div class="form-row">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="What's on your mind?"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-wide">Send Message</button>
-    </form>
-
-    <div class="contact-alt">
-      <p>Or reach me directly:</p>
-      <div class="hero-links">
-        <a class="btn" href="mailto:jcpcabanada@gmail.com">jcpcabanada@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/jcpcabanada" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/jcpcab" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer class="footer">
   <div class="container footer-inner">
     <p>© <span id="year">2026</span> Jordan Chaz Cabanada</p>
-    <p class="footer-note">Built with vanilla HTML, CSS &amp; JS · Hosted on GitHub Pages 🌿</p>
   </div>
 </footer>
 
