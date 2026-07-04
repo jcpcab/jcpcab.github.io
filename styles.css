@@ -541,6 +541,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 /* minimized windows (via titlebar button) */
 .window.minimized .window-body { display: none; }
 .window .tb-min { cursor: pointer; }
+.window .tb-min:hover { filter: brightness(1.2); }
+.window.minimized .tb-min {
+  background: var(--gold);
+  color: var(--accent-dark);
+  border-color: #8a6d2f;
+}
+.window.minimized .titlebar { cursor: pointer; }
+
+/* focused window follows scroll; others dim slightly */
+.window { transition: filter 0.3s ease; }
+.window.dimmed { filter: brightness(0.82) saturate(0.85); }
+
+/* hero hint */
+.hint {
+  margin: 1.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
 
 /* ===== about ===== */
 .about-grid {
@@ -897,6 +915,27 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: var(--radius-sm);
   box-shadow: inset 1px 1px 2px var(--bevel-dark);
   white-space: nowrap;
+}
+
+.tray-view {
+  position: relative;
+  overflow: hidden;
+  min-width: 9.5rem;
+  color: var(--text);
+}
+.tray-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background: rgba(127, 170, 118, 0.3);
+}
+.tray-label { position: relative; }
+
+@media (max-width: 40em) {
+  .tray-cell.copy { display: none; }
+  .tray-view { min-width: 7.5rem; }
 }
 
 /* ===== breakpoints ===== */
