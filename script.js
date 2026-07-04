@@ -1,26 +1,3 @@
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-navToggle.addEventListener('click', () => {
-  const isOpen = navMenu.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-navMenu.addEventListener('click', (e) => {
-  if (e.target.matches('a')) {
-    navMenu.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-    navMenu.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.focus();
-  }
-});
-
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!prefersReducedMotion && 'IntersectionObserver' in window) {
@@ -42,42 +19,53 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
 }
 
 document.querySelectorAll('.window').forEach((win) => {
-  const btn = win.querySelector('.mac-2') ||
-    win.querySelector('.tb10, .mint-btn, .tb95, .tbxp, .s7-box');
-  if (!btn) return;
+  let minBtn;
+  let maxBtn;
+  if (win.querySelector('.mac-dot')) {
+    minBtn = win.querySelector('.mac-2');
+    maxBtn = win.querySelector('.mac-3');
+  } else if (win.querySelector('.s7-box')) {
+    const boxes = win.querySelectorAll('.s7-box');
+    minBtn = boxes[0];
+    maxBtn = boxes[boxes.length - 1];
+  } else {
+    const btns = win.querySelectorAll('.tb10, .mint-btn, .tb95, .tbxp');
+    minBtn = btns[0];
+    maxBtn = btns[1];
+  }
+  if (!minBtn || !maxBtn) return;
 
-  const hasGlyph = !btn.classList.contains('mac-2') && !btn.classList.contains('s7-box');
-  const originalGlyph = hasGlyph ? btn.textContent : null;
-
-  btn.classList.add('tb-min');
-  btn.setAttribute('role', 'button');
-  btn.setAttribute('tabindex', '0');
-  btn.setAttribute('aria-label', 'Minimize section');
-  btn.setAttribute('aria-expanded', 'true');
-  btn.title = 'Minimize';
-  btn.removeAttribute('aria-hidden');
-  btn.parentElement.removeAttribute('aria-hidden');
-
-  const toggle = () => {
-    const minimized = win.classList.toggle('minimized');
-    btn.setAttribute('aria-expanded', String(!minimized));
-    btn.setAttribute('aria-label', minimized ? 'Restore section' : 'Minimize section');
-    btn.title = minimized ? 'Restore' : 'Minimize';
-    if (hasGlyph) btn.textContent = minimized ? '❐' : originalGlyph;
+  const setState = (minimized) => {
+    win.classList.toggle('minimized', minimized);
+    minBtn.setAttribute('aria-expanded', String(!minimized));
   };
 
-  btn.addEventListener('click', toggle);
-  btn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle();
-    }
-  });
+  const setup = (btn, label, action) => {
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+    btn.removeAttribute('aria-hidden');
+    btn.parentElement.removeAttribute('aria-hidden');
+    btn.addEventListener('click', action);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        action();
+      }
+    });
+  };
+
+  minBtn.classList.add('tb-min');
+  maxBtn.classList.add('tb-max');
+  minBtn.setAttribute('aria-expanded', 'true');
+  setup(minBtn, 'Minimize section', () => setState(true));
+  setup(maxBtn, 'Restore section', () => setState(false));
 
   win.querySelector('.titlebar').addEventListener('click', (e) => {
     if (!win.classList.contains('minimized')) return;
-    if (e.target.closest('.tb-min')) return;
-    toggle();
+    if (e.target.closest('.tb-min, .tb-max')) return;
+    setState(false);
   });
 });
 
