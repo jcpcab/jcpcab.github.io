@@ -24,7 +24,7 @@ document.addEventListener('keydown', (e) => {
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-  const targets = document.querySelectorAll('.card, .section h2, .code-comment, .hero-inner > *');
+  const targets = document.querySelectorAll('.card, .job, .skill-row, .edu-item, .cert-item, .section h2, .code-comment, .hero-inner > *');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
